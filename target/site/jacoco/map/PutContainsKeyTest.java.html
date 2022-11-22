@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PutContainsKeyTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">map</a> &gt; <span class="el_source">PutContainsKeyTest.java</span></div><h1>PutContainsKeyTest.java</h1><pre class="source lang-java linenums">package map;
+import org.junit.Test;
+
+import java.util.List;
+import java.util.Map;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+<span class="nc" id="L9">public class PutContainsKeyTest {</span>
+
+        @Test
+        public void addNewElement() {
+<span class="nc" id="L13">            User one = new User(1, &quot;Name1&quot;);</span>
+<span class="nc" id="L14">            User two = new User(2, &quot;Name2&quot;);</span>
+<span class="nc" id="L15">            User three = new User(1, &quot;Name3&quot;);</span>
+<span class="nc" id="L16">            List&lt;User&gt; list = List.of(one, two, three);</span>
+<span class="nc" id="L17">            Map&lt;Integer, User&gt; map = PutContainsKey.addNewElementWithCheck(list);</span>
+<span class="nc" id="L18">            Map&lt;Integer, User&gt; expected = Map.of(1, one, 2, two);</span>
+<span class="nc" id="L19">            assertThat(map, is(expected));</span>
+<span class="nc" id="L20">        }</span>
+
+        @Test
+        public void addNewElementWithoutCheck() {
+<span class="nc" id="L24">            User one = new User(1, &quot;Name1&quot;);</span>
+<span class="nc" id="L25">            User two = new User(2, &quot;Name2&quot;);</span>
+<span class="nc" id="L26">            User three = new User(1, &quot;Name3&quot;);</span>
+<span class="nc" id="L27">            List&lt;User&gt; list = List.of(one, two, three);</span>
+<span class="nc" id="L28">            Map&lt;Integer, User&gt; map = PutContainsKey.addNewElementWithoutCheck(list);</span>
+<span class="nc" id="L29">            Map&lt;Integer, User&gt; expected = Map.of(1, three, 2, two);</span>
+<span class="nc" id="L30">            assertThat(map, is(expected));</span>
+<span class="nc" id="L31">        }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

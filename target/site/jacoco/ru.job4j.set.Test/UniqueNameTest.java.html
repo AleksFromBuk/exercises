@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UniqueNameTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.set.Test</a> &gt; <span class="el_source">UniqueNameTest.java</span></div><h1>UniqueNameTest.java</h1><pre class="source lang-java linenums">package ru.job4j.set.Test;
+
+import org.junit.Test;
+import ru.job4j.set.Isogram;
+import ru.job4j.set.UniqueName;
+
+import java.util.List;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+import static ru.job4j.set.UniqueName.User;
+
+<span class="nc" id="L13">public class UniqueNameTest {</span>
+    @Test
+    public void collectUniqueName() {
+<span class="nc" id="L16">        List&lt;User&gt; users = List.of(</span>
+                new User(1, &quot;name1&quot;),
+                new User(2, &quot;name2&quot;),
+                new User(3, &quot;name1&quot;),
+                new User(4, &quot;name3&quot;),
+                new User(5, &quot;name5&quot;),
+                new User(6, &quot;name3&quot;)
+        );
+<span class="nc" id="L24">        int rsl = UniqueName.collectUniqueName(users);</span>
+<span class="nc" id="L25">        int expected = 4;</span>
+<span class="nc" id="L26">        assertThat(rsl, is(expected));</span>
+<span class="nc" id="L27">    }</span>
+
+<span class="nc" id="L29">    public static class IsogramTest {</span>
+        @Test
+        public void checkStringTrue() {
+<span class="nc" id="L32">            String s = &quot;uncopyrightables&quot;;</span>
+<span class="nc" id="L33">            boolean b = Isogram.checkString(s);</span>
+<span class="nc" id="L34">            assertThat(b, is(true));</span>
+<span class="nc" id="L35">        }</span>
+
+        @Test
+        public void checkStringFalse() {
+<span class="nc" id="L39">            String s = &quot;javascript&quot;;</span>
+<span class="nc" id="L40">            boolean b = Isogram.checkString(s);</span>
+<span class="nc" id="L41">            assertThat(b, is(false));</span>
+<span class="nc" id="L42">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TerminalForPrimitive.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">stream</a> &gt; <span class="el_source">TerminalForPrimitive.java</span></div><h1>TerminalForPrimitive.java</h1><pre class="source lang-java linenums">package stream;
+
+import java.util.Arrays;
+
+public class TerminalForPrimitive {
+
+    /**
+     * Как вы уже знаете. Есть стримы примитивов IntStream,
+     * LongStream,
+     * DoubleStream.
+     *
+     * Обратите внимание, что это всё примитивы чисел,
+     * а к числам применимы арифметические операции, поэтому     *
+     * в этих стримах есть терминальные операции
+     * min(), max(), sum(), average(). min(), max() возвращают OptionalInt,
+     * для получения элемента нужно использовать метод getAsInt()
+     * average() возвращает OptionalDouble, для получения элемента
+     * нужно использовать метод getAsDouble()
+     *
+     * Ваша задача дописать методы. Для получения стрима нужно использовать Arrays.stream()
+     */
+
+    private int[] data;
+
+<span class="nc" id="L25">    public TerminalForPrimitive(int[] data) {</span>
+<span class="nc" id="L26">        this.data = data;</span>
+<span class="nc" id="L27">    }</span>
+
+    public long count() {
+<span class="nc" id="L30">        return Arrays.stream(data).count();</span>
+    }
+
+    public long max() {
+<span class="nc" id="L34">        return Arrays.stream(data).max().getAsInt();</span>
+    }
+
+    public long min() {
+<span class="nc" id="L38">        return Arrays.stream(data).min().getAsInt();</span>
+    }
+
+    public double avg() {
+<span class="nc" id="L42">        return Arrays.stream(data).average().getAsDouble();</span>
+    }
+
+    public long sum() {
+<span class="nc" id="L46">        return Arrays.stream(data).sum();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

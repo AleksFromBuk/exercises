@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Farm.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">map</a> &gt; <span class="el_source">Farm.java</span></div><h1>Farm.java</h1><pre class="source lang-java linenums">package map;
+
+import java.util.Map;
+import java.util.Objects;
+
+<span class="nc" id="L6">public class Farm {</span>
+    public static int sumLegs(Map&lt;Animal, Integer&gt; data) {
+<span class="fc" id="L8">        int ans = 0;</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        for (Animal it : data.keySet()) {</span>
+<span class="fc" id="L10">            ans += it.getLegs() * data.get(it);</span>
+<span class="fc" id="L11">        }</span>
+<span class="fc" id="L12">        return ans;</span>
+    }
+
+    public static class Animal {
+        private String name;
+
+        private int legs;
+
+<span class="fc" id="L20">        public Animal(String name, int legs) {</span>
+<span class="fc" id="L21">            this.name = name;</span>
+<span class="fc" id="L22">            this.legs = legs;</span>
+<span class="fc" id="L23">        }</span>
+
+        public String getName() {
+<span class="nc" id="L26">            return name;</span>
+        }
+
+        public int getLegs() {
+<span class="fc" id="L30">            return legs;</span>
+        }
+
+        @Override
+        public boolean equals(Object o) {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            if (this == o) return true;</span>
+<span class="pc bpc" id="L36" title="2 of 4 branches missed.">            if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L37">            Animal animal = (Animal) o;</span>
+<span class="fc" id="L38">            return Objects.equals(name, animal.name);</span>
+        }
+
+        @Override
+        public int hashCode() {
+<span class="fc" id="L43">            return Objects.hash(name);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

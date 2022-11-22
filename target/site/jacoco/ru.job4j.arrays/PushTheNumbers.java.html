@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PushTheNumbers.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.arrays</a> &gt; <span class="el_source">PushTheNumbers.java</span></div><h1>PushTheNumbers.java</h1><pre class="source lang-java linenums">package ru.job4j.arrays;
+
+<span class="nc" id="L3">public class PushTheNumbers {</span>
+
+    public static void push(int[][] array, int row, int column) {
+<span class="nc" id="L6">        int size  = array.length;</span>
+<span class="nc bnc" id="L7" title="All 2 branches missed.">        for(int i = 0; i &lt; column; i++) {</span>
+<span class="nc" id="L8">            array[row][i] = array[row][i + 1];</span>
+        }
+<span class="nc bnc" id="L10" title="All 2 branches missed.">        for(int i = size - 1; i &gt;= column; i--) {</span>
+<span class="nc" id="L11">            array[row][i] = array[row][i - 1];</span>
+        }
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        for(int i = 0; i &lt; row; i++) {</span>
+<span class="nc" id="L14">            array[i][column] = array[i + 1][column];</span>
+        }
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for(int i = size - 1; i &gt; row; i--) {</span>
+<span class="nc" id="L17">            array[i][column] = array[i - 1][column];</span>
+        }
+<span class="nc" id="L19">        array[row][column] = 0;</span>
+<span class="nc" id="L20">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L23">        int [][] array = {</span>
+                {62, 12, 86, 96, 2},
+                {78, 98, 10, 45, 86},
+                {82, 59, 47, 88, 79},
+                {99, 10, 91, 73, 88},
+                {32, 48, 8, 87, 55 }
+        };
+<span class="nc" id="L30">        push(array, 2, 2);</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        for(int i = 0; i &lt; 5; i++) {</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            for(int j = 0; j &lt; 5; j++) {</span>
+<span class="nc" id="L33">                System.out.print(array[i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L35">            System.out.println();</span>
+        }
+<span class="nc" id="L37">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FirewallTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.set.Test</a> &gt; <span class="el_source">FirewallTest.java</span></div><h1>FirewallTest.java</h1><pre class="source lang-java linenums">package ru.job4j.set.Test;
+
+import org.junit.Test;
+import ru.job4j.set.Firewall;
+
+import java.util.Set;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
+
+<span class="nc" id="L11">public class FirewallTest {</span>
+    @Test
+    public void checkName() {
+<span class="nc" id="L14">        Set&lt;String&gt; words = Set.of(&quot;instagram&quot;, &quot;фото&quot;, &quot;мем&quot;, &quot;котик&quot;);</span>
+<span class="nc" id="L15">        String s = &quot;Создание многомодульного Gradle проекта SpringBoot + Angular в IDEA&quot;;</span>
+<span class="nc" id="L16">        String rsl = Firewall.checkName(s, words);</span>
+<span class="nc" id="L17">        assertThat(rsl, is(&quot;Вы сделали правильный выбор!&quot;));</span>
+<span class="nc" id="L18">    }</span>
+
+    @Test
+    public void checkNameFalse() {
+<span class="nc" id="L22">        Set&lt;String&gt; words = Set.of(&quot;instagram&quot;, &quot;фото&quot;, &quot;мем&quot;, &quot;котик&quot;);</span>
+<span class="nc" id="L23">        String s = &quot;Криштиану Роналду опубликовал новую фотографию с детьми в instagram&quot;;</span>
+<span class="nc" id="L24">        String rsl = Firewall.checkName(s, words);</span>
+<span class="nc" id="L25">        assertThat(rsl, is(&quot;Выберите другую статью...&quot;));</span>
+<span class="nc" id="L26">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Split.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">ru.job4j</a> &gt; <span class="el_source">Split.java</span></div><h1>Split.java</h1><pre class="source lang-java linenums">package ru.job4j;
+
+import java.util.Arrays;
+
+<span class="nc" id="L5">public class Split {</span>
+    public static char[][] split(char[] str, char c) {
+<span class="nc" id="L7">        char[][] result = new char[str.length / 2][];</span>
+<span class="nc" id="L8">        int commonCount = 0;</span>
+<span class="nc" id="L9">        int currsize = 0;</span>
+<span class="nc" id="L10">        int j = 0;</span>
+<span class="nc" id="L11">        int curs = 0;</span>
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        for (int i = 0; i &lt; str.length; i++) {</span>
+
+<span class="nc bnc" id="L14" title="All 2 branches missed.">            if (str[i] != c) {</span>
+<span class="nc" id="L15">                curs++;</span>
+<span class="nc" id="L16">                continue;</span>
+            } else {
+<span class="nc" id="L18">                result[j++] = new char[curs];</span>
+<span class="nc" id="L19">                commonCount++;</span>
+<span class="nc" id="L20">                curs = 0;</span>
+            }
+        }
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if(curs != 0) {</span>
+<span class="nc" id="L24">            result[j++] = new char[curs];</span>
+<span class="nc" id="L25">            commonCount++;</span>
+<span class="nc" id="L26">            curs = 0;</span>
+        }
+<span class="nc" id="L28">        int i = 0;</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        for(j = 0; j &lt; commonCount; j++) {</span>
+
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            for (; i &lt; str.length; i++) {</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                if( str[i] != c) {</span>
+<span class="nc" id="L33">                    result[j][curs++] = str[i];</span>
+                } else {
+<span class="nc" id="L35">                    i++;</span>
+<span class="nc" id="L36">                    curs = 0;</span>
+<span class="nc" id="L37">                    break;</span>
+                }
+            }
+        }
+<span class="nc" id="L41">        return Arrays.copyOf(result, commonCount);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>arithmeticProgressionTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">arithmeticProgressionTest.java</span></div><h1>arithmeticProgressionTest.java</h1><pre class="source lang-java linenums">package test;
+
+import list.arithmeticProgression;
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
+<span class="nc" id="L11">public class arithmeticProgressionTest {</span>
+    @Test
+    public void checkDataIsNotNull() {
+<span class="nc" id="L14">        List&lt;Integer&gt; data = List.of(</span>
+<span class="nc" id="L15">                1, 6, 11, 16, 21,</span>
+<span class="nc" id="L16">                26, 31, 36, 41, 46</span>
+        );
+<span class="nc" id="L18">        int rsl = arithmeticProgression.checkData(data);</span>
+<span class="nc" id="L19">        assertThat(rsl, is(235));</span>
+<span class="nc" id="L20">    }</span>
+
+    @Test
+    public void checkDataIsNull() {
+<span class="nc" id="L24">        List&lt;Integer&gt; data = List.of(</span>
+<span class="nc" id="L25">                1, 6, 11, 15, 21,</span>
+<span class="nc" id="L26">                26, 31, 36, 41, 46</span>
+        );
+<span class="nc" id="L28">        int rsl = arithmeticProgression.checkData(data);</span>
+<span class="nc" id="L29">        assertThat(rsl, is(0));</span>
+<span class="nc" id="L30">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

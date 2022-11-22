@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PushTheNumbersTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">all_exercises</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.arrays.Test</a> &gt; <span class="el_source">PushTheNumbersTest.java</span></div><h1>PushTheNumbersTest.java</h1><pre class="source lang-java linenums">package ru.job4j.arrays.Test;
+
+import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+import static ru.job4j.arrays.PushTheNumbers.push;
+
+<span class="nc" id="L9">public class PushTheNumbersTest {</span>
+
+    @Test
+    public void testWithArray5To5() {
+<span class="nc" id="L13">        int [][] array = {</span>
+                {62, 12, 86, 96, 2},
+                {78, 98, 10, 45, 86},
+                {82, 59, 47, 88, 79},
+                {99, 10, 91, 73, 88},
+                {32, 48, 8, 87, 55 }
+        };
+<span class="nc" id="L20">        push(array, 2, 2);</span>
+<span class="nc" id="L21">        int[][] expected = {</span>
+                {62, 12, 10, 96, 2},
+                {78, 98, 47, 45, 86},
+                {59, 47, 0, 47, 88},
+                {99, 10 ,47, 73, 88},
+                {32, 48 ,91, 87, 55}
+        };
+<span class="nc" id="L28">        assertThat(array, is(expected));</span>
+<span class="nc" id="L29">    }</span>
+
+    @Test
+    public void testWithArray4To4() {
+<span class="nc" id="L33">        int [][] array = {</span>
+                {29, 29, 48, 92},
+                {90, 58, 7, 57},
+                {87, 36, 21, 19},
+                {93, 55, 60, 89}
+        };
+<span class="nc" id="L39">        push(array, 3, 1);</span>
+<span class="nc" id="L40">        int[][] expected = {</span>
+                {29, 58, 48, 92},
+                {90, 36, 7, 57},
+                {87, 55, 21, 19},
+                {55, 0, 55, 60}
+        };
+<span class="nc" id="L46">        assertThat(array, is(expected));</span>
+<span class="nc" id="L47">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
