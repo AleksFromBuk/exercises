@@ -1,6 +1,7 @@
 package list.shell;
 
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -18,17 +19,33 @@ public class Shell {
     }
 
     public void cd(String path) {
-        data.addLast(path);
         String[] input = path.split("/");
-        if(input.length == 1 && path != "..") {
-            data.addLast(path);
-        }
-        //String rsl = Arrays.toString(input);
 
+        if(path.startsWith("/")) {
+            if (!data.isEmpty()) data.clear();
+        }
+        for(String i : input) {
+            if(i.isEmpty()) continue;
+            if(i.equals("..")) {
+                data.pollLast();
+                continue;
+            }
+            data.addLast(i);
+        }
     }
 
     public String pwd() {
-        return data.peekFirst();
+        if(data.isEmpty()) {
+            return "/";
+        }
+
+        Iterator<String> it = data.iterator();
+        String ans = "";
+        String pref = "/";
+        while(it.hasNext()) {
+            ans += pref + it.next();
+        }
+        return ans;
     }
 
 }
